@@ -660,6 +660,7 @@ i.e. change right window to bottom, or change bottom window to right."
      (member-init-intro . 0)
      (arglist-cont-nonempty . +))))
  '(column-number-mode t)
+ '(custom-enabled-themes (quote (tango-dark)))
  '(display-time-24hr-format t)
  '(display-time-default-load-average nil)
  '(display-time-mail-directory nil)
