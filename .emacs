@@ -87,6 +87,7 @@
 
 (global-set-key (kbd "M-c") 'copy-region-as-kill)
 (global-set-key (kbd "M-C") 'copy-symbol-as-kill)
+(global-set-key (kbd "C-M-L") 'copy-line-as-kill)
 (global-set-key (kbd "M-v") 'yank)
 (global-set-key (kbd "M-z") 'kill-region)
 (global-set-key (kbd "C-M-d") 'pwd)
@@ -478,6 +479,21 @@ i.e. change right window to bottom, or change bottom window to right."
     (back-to-indentation)
     (when (= (point) saved-pos) ; already at the first significant char
       (beginning-of-line))))
+
+
+;; Copy entire line into the kill buffer
+(defun copy-line-as-kill ()
+      "Copy the whole line that point is on and move to the beginning of the next line.
+    Consecutive calls to this command append each line to the
+    kill-ring."
+      (interactive)
+      (let ((beg (line-beginning-position 1))
+            (end (line-beginning-position 2))
+            (saved_pos (point)))
+        (if (eq last-command 'quick-copy-line)
+            (kill-append (buffer-substring beg end) (< end beg))
+          (kill-new (buffer-substring beg end)))))
+
 
 ;; Duplicate line
 (defun duplicate-line (arg)
