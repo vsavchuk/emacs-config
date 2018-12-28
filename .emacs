@@ -611,6 +611,17 @@ i.e. change right window to bottom, or change bottom window to right."
   (interactive)
   (skip 1))
 
+(defun vs-python-command ()
+  "Return path of the python interpreter"
+  (let* ((dev7_path "/home/vadym/opt/python/bin/python"))
+    (cond ((file-exists-p dev7_path) dev7_path)
+          (t         "/usr/bin/python"))))
+
+(defun vs-pylint-command ()
+  "Return path of the python interpreter"
+  (let* ((dev7_path "/home/vadym/opt/python/bin/pylint"))
+    (cond ((file-exists-p dev7_path) dev7_path)
+          (t         "/usr/bin/pylint"))))
 
 ;; rtags
 
@@ -679,11 +690,11 @@ i.e. change right window to bottom, or change bottom window to right."
  '(elpy-modules
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-yasnippet elpy-module-sane-defaults)))
- '(elpy-rpc-python-command "/home/vadym/opt/python/bin/python")
+ '(elpy-rpc-python-command (vs-python-command))
  '(flycheck-checkers
    (quote
     (ada-gnat asciidoctor asciidoc c/c++-clang c/c++-gcc c/c++-cppcheck cfengine chef-foodcritic coffee coffee-coffeelint coq css-csslint css-stylelint d-dmd dockerfile-hadolint elixir-dogma emacs-lisp emacs-lisp-checkdoc erlang-rebar3 erlang eruby-erubis fortran-gfortran go-gofmt go-golint go-vet go-build go-test go-errcheck go-unconvert go-megacheck groovy haml handlebars haskell-stack-ghc haskell-ghc haskell-hlint html-tidy javascript-eslint javascript-jshint javascript-jscs javascript-standard json-jsonlint json-python-json jsonnet less less-stylelint llvm-llc lua-luacheck lua perl perl-perlcritic php php-phpmd php-phpcs processing proselint protobuf-protoc pug puppet-parser puppet-lint python-pylint python-flake8 python-pycompile r-lintr racket rpm-rpmlint markdown-mdl nix rst-sphinx rst ruby-rubocop ruby-reek ruby-rubylint ruby ruby-jruby rust-cargo rust scala scala-scalastyle scheme-chicken scss-lint scss-stylelint sass/scss-sass-lint sass scss sh-bash sh-posix-dash sh-posix-bash sh-zsh sh-shellcheck slim slim-lint sql-sqlint systemd-analyze tex-chktex tex-lacheck texinfo typescript-tslint verilog-verilator xml-xmlstarlet xml-xmllint yaml-jsyaml yaml-ruby)))
- '(flycheck-python-pylint-executable "/home/vadym/opt/python/bin/pylint")
+ '(flycheck-python-pylint-executable (vs-pylint-command))
  '(ggtags-global-abbreviate-filename nil)
  '(git-commit-setup-hook
    (quote
