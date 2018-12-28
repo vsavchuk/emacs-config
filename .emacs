@@ -279,6 +279,8 @@
   (modify-syntax-entry ?> ".")
   (modify-syntax-entry ?[ ".")
   (modify-syntax-entry ?] ".")
+  (require 'auto-complete-c-headers)
+  (add-to-list 'ac-sources 'ac-source-c-headers)
 )
 
 (add-hook 'c-mode-common-hook 'cc-mode-settings)
@@ -732,7 +734,7 @@ i.e. change right window to bottom, or change bottom window to right."
     (magit-insert-status-headers magit-insert-merge-log magit-insert-rebase-sequence magit-insert-am-sequence magit-insert-sequencer-sequence magit-insert-bisect-output magit-insert-bisect-rest magit-insert-bisect-log magit-insert-unstaged-changes magit-insert-staged-changes magit-insert-stashes magit-insert-unpulled-from-upstream magit-insert-unpulled-from-pushremote magit-insert-unpushed-to-upstream magit-insert-unpushed-to-pushremote magit-insert-untracked-files)))
  '(package-selected-packages
    (quote
-    (expand-region yasnippet-snippets auto-complete go-mode s groovy-mode hydra helm-swoop helm-projectile projectile project-explorer nav yaml-mode wgrep-ag undo-tree rtags py-autopep8 jedi icicles helm-grepint helm-fuzzy-find helm-ag ggtags flycheck elpy autopair ag)))
+    (auto-complete-c-headers expand-region yasnippet-snippets auto-complete go-mode s groovy-mode hydra helm-swoop helm-projectile projectile project-explorer nav yaml-mode wgrep-ag undo-tree rtags py-autopep8 jedi icicles helm-grepint helm-fuzzy-find helm-ag ggtags flycheck elpy autopair ag)))
  '(pe/omit-regex "^\\.\\|^#\\|~$\\|^node_modules\\|\\.o$")
  '(safe-local-variable-values
    (quote
