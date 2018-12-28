@@ -336,17 +336,20 @@
 With argument, do this that many times."
     (interactive "p")
       (delete-region (point) (progn (forward-word arg) (point))))
+
 (defun backward-delete-word (arg)
     "Delete characters backward until encountering the beginning of a word.
 With argument, do this that many times."
     (interactive "p")
     (delete-region (point) (progn (backward-word arg) (point))))
-(defun backward-delete-word-cc ()
-    (interactive)
-    (delete-region (point) (progn (skip-backward) (point))))
+
 (defun delete-word-cc ()
     (interactive)
     (delete-region (point) (progn (skip-forward) (point))))
+
+(defun backward-delete-word-cc ()
+    (interactive)
+    (delete-region (point) (progn (skip-backward) (point))))
 
 ;; Go to matching paren
 (defun forward-or-backward-sexp (&optional arg)
