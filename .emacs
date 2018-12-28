@@ -4,10 +4,6 @@
 (package-initialize)
 (elpy-enable)
 
-; Enable Yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
-
 ;; Global shortcuts
 
 (global-set-key (kbd "M-x") #'helm-M-x)
@@ -76,6 +72,7 @@
 (global-set-key (kbd "C-'") 'isearch-forward-at-point)
 (global-set-key [f3] 'set-mark-command)
 (global-set-key [C-f3] 'kmacro-start-macro-or-insert-counter) ; XXX doesn't bind in text mode
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 (global-set-key [f7] 'find-file-in-project)
 (global-set-key [C-f7] 'search-all-buffers)
@@ -230,6 +227,19 @@
 ;(require 'buff-menu+)
 (require 'highlight-symbol)
 (require 'eassist)
+
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
+;(global-auto-complete-mode nil)
+
+(require 'expand-region)
+(require 'autopair)
+(autopair-mode 1)
+
+; Enable Yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
 
 (setq-default truncate-lines t) ;; disable word wrapping
 (setq scroll-step 1)    ;; scroll by line, not half-pages
@@ -708,7 +718,7 @@ i.e. change right window to bottom, or change bottom window to right."
     (magit-insert-status-headers magit-insert-merge-log magit-insert-rebase-sequence magit-insert-am-sequence magit-insert-sequencer-sequence magit-insert-bisect-output magit-insert-bisect-rest magit-insert-bisect-log magit-insert-unstaged-changes magit-insert-staged-changes magit-insert-stashes magit-insert-unpulled-from-upstream magit-insert-unpulled-from-pushremote magit-insert-unpushed-to-upstream magit-insert-unpushed-to-pushremote magit-insert-untracked-files)))
  '(package-selected-packages
    (quote
-    (magit yasnippet-snippets yasnippet go-mode s groovy-mode hydra helm-swoop helm-projectile projectile project-explorer nav yaml-mode wgrep-ag undo-tree rtags py-autopep8 jedi icicles helm-grepint helm-fuzzy-find helm-ag ggtags flycheck elpy autopair ag)))
+    (expand-region yasnippet-snippets auto-complete go-mode s groovy-mode hydra helm-swoop helm-projectile projectile project-explorer nav yaml-mode wgrep-ag undo-tree rtags py-autopep8 jedi icicles helm-grepint helm-fuzzy-find helm-ag ggtags flycheck elpy autopair ag)))
  '(pe/omit-regex "^\\.\\|^#\\|~$\\|^node_modules\\|\\.o$")
  '(safe-local-variable-values
    (quote
