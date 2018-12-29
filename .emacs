@@ -31,7 +31,7 @@
 (global-set-key (kbd "S-C-<up>") (kbd "C-u 5 C-x 9"))    ; FIXME: hotkey does not work
 
 ;(global-set-key [C-tab] 'switch-to-previous-buffer)
-(global-set-key [C-tab] 'ido-switch-buffer)
+(global-set-key [C-tab] 'ivy-switch-buffer)
 (global-set-key [C-f4] 'kill-this-buffer)
 (global-unset-key (kbd "M-`"))
 (global-set-key (kbd "M-q") 'kill-this-buffer)
@@ -73,6 +73,8 @@
 (global-set-key [f3] 'set-mark-command)
 (global-set-key [C-f3] 'kmacro-start-macro-or-insert-counter) ; XXX doesn't bind in text mode
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-;") 'avy-goto-char-2)
+(global-set-key (kbd "C-;") 'ace-jump-word-mode)
 
 (global-set-key [f7] 'find-file-in-project)
 (global-set-key [C-f7] 'search-all-buffers)
@@ -739,7 +741,7 @@ i.e. change right window to bottom, or change bottom window to right."
     (magit-insert-status-headers magit-insert-merge-log magit-insert-rebase-sequence magit-insert-am-sequence magit-insert-sequencer-sequence magit-insert-bisect-output magit-insert-bisect-rest magit-insert-bisect-log magit-insert-unstaged-changes magit-insert-staged-changes magit-insert-stashes magit-insert-unpulled-from-upstream magit-insert-unpulled-from-pushremote magit-insert-unpushed-to-upstream magit-insert-unpushed-to-pushremote magit-insert-untracked-files)))
  '(package-selected-packages
    (quote
-    (auto-complete-c-headers expand-region yasnippet-snippets auto-complete go-mode s groovy-mode hydra helm-swoop helm-projectile projectile project-explorer nav yaml-mode wgrep-ag undo-tree rtags py-autopep8 jedi icicles helm-grepint helm-fuzzy-find helm-ag ggtags flycheck elpy autopair ag)))
+    (ace-jump-mode avy auto-complete-c-headers expand-region yasnippet-snippets auto-complete go-mode s groovy-mode hydra helm-swoop helm-projectile projectile project-explorer nav yaml-mode wgrep-ag undo-tree rtags py-autopep8 jedi icicles helm-grepint helm-fuzzy-find helm-ag ggtags flycheck elpy autopair ag)))
  '(pe/omit-regex "^\\.\\|^#\\|~$\\|^node_modules\\|\\.o$")
  '(safe-local-variable-values
    (quote
