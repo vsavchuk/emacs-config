@@ -263,6 +263,16 @@
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
+;; Fix jerky scrolling
+(setq redisplay-dont-pause t
+  scroll-margin 1
+  scroll-step 1
+  scroll-conservatively 10000
+  scroll-preserve-screen-position 1)
+
+;; Enable flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ; start server
 (load "server")
 (unless (server-running-p) (server-start))
@@ -290,16 +300,6 @@
   (lambda ()
     (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
                     (ggtags-mode 1))))
-
-;; Fix jerky scrolling
-(setq redisplay-dont-pause t
-  scroll-margin 1
-  scroll-step 1
-  scroll-conservatively 10000
-  scroll-preserve-screen-position 1)
-
-;; Enable flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
