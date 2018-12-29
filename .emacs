@@ -246,6 +246,7 @@
 (setq-default truncate-lines t) ;; disable word wrapping
 (setq scroll-step 1)    ;; scroll by line, not half-pages
 (setq inhibit-splash-screen t)
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 (electric-pair-mode)
 (setq column-number-mode t)
