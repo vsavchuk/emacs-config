@@ -73,6 +73,7 @@
 (global-set-key [f3] 'set-mark-command)
 (global-set-key [C-f3] 'kmacro-start-macro-or-insert-counter) ; XXX doesn't bind in text mode
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-c C-SPC") 'avy-goto-char-2)
 (global-set-key (kbd "C-;") 'avy-goto-char-2)
 (global-set-key (kbd "C-;") 'ace-jump-word-mode)
 
