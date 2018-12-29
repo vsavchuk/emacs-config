@@ -264,6 +264,7 @@
 (setq make-backup-files nil)
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+(global-undo-tree-mode)
 
 ; Make Dired reuse the buffer when navigating directories
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-file
