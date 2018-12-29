@@ -229,6 +229,7 @@
 ;(require 'buff-menu+)
 (require 'highlight-symbol)
 (require 'eassist)
+(require 'dired-x)
 
 (require 'auto-complete)
 (require 'auto-complete-config)
