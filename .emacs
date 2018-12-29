@@ -248,7 +248,7 @@
 (setq inhibit-splash-screen t)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(electric-pair-mode)
+;(electric-pair-mode)
 (setq column-number-mode t)
 (display-time-mode 1)
 (setq dired-listing-switches "-lXGh --group-directories-first") ; Show directories first in dired
