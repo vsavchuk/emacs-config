@@ -263,6 +263,11 @@
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
+; Make Dired reuse the buffer when navigating directories
+(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-file
+(define-key dired-mode-map (kbd "^")
+  (lambda () (interactive) (find-alternate-file ".."))) ; was dired-up-directory
+
 ;; Fix jerky scrolling
 (setq redisplay-dont-pause t
   scroll-margin 1
