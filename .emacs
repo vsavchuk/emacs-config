@@ -310,6 +310,13 @@
     (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
                     (ggtags-mode 1))))
 
+;;;;; Python mode settings
+
+(add-hook 'python-mode-hook
+          '(lambda ()
+	     (autopair-mode 1)))
+
+
 ;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
